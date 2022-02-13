@@ -1,4 +1,5 @@
 const CracoLessPlugin = require('craco-less');
+const path = require('path');
 module.exports = {
   babel: {
     plugins: [
@@ -21,7 +22,12 @@ module.exports = {
     ]
   },
   webpack: {
-  
+    configure: (webpackConfig, { env, paths }) => {
+      return webpackConfig;
+    },
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+    },
   },
   // craco 提供的插件
   plugins: [
@@ -38,6 +44,9 @@ module.exports = {
             javascriptEnabled: true,
           },
         },
+        cssLoaderOptions: {
+          modules: { localIdentName: "[local]_[hash:base64:5]" },
+        }
       },
     },
   ]

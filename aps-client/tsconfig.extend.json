@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "baseUrl": "src", // 工作根目录
+    "paths": { // 指定模块的路径，和baseUrl有关联，和webpack中resolve.alias配置一样
+      "@/*": ["./*"]
+    },
+  }
+}
